@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bhabani | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-dark text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Welcome to my portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="/skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="/certificates">Certificates</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <header class="row align-items-center">
+      <div class="col-md-8">
+        <h2 class="display-5 mb-3">Bhabani Shankar Pradhan</h2>
+        <p class="fst-italic">Turning ideas into real-world tech — with code, circuits, and coffee ☕.</p>
+        <div class="animated-intro">
+          <p class="fs-5 text-info">Electronics & Communication Engineer</p>
+          <p class="fs-6">Python Developer | VLSI Enthusiast | IoT Explorer</p>
+        </div>
+        <div class="mt-3 animate-fade-up">
+          <span class="badge bg-success me-2">Python</span>
+          <span class="badge bg-warning text-dark me-2">VLSI</span>
+          <span class="badge bg-info text-dark me-2">IoT</span>
+          <span class="badge bg-primary me-2">HTML</span>
+          <span class="badge bg-danger me-2">Flask</span>
+          <span class="badge bg-light text-dark me-2">SQL</span>
+        </div>
+        <p class="mt-4 animate-delay">
+          I'm deeply passionate about building intelligent systems that solve real-world problems.
+          Whether it's through coding in Python, designing VLSI circuits, or automating with IoT —
+          I'm always exploring new tech to build better solutions.
+        </p>
+        <div class="row mt-5 text-center animate-delay">
+          <div class="col-md-4">
+            <h3>8.66 CGPA</h3>
+            <p>in B.Tech (ECE) from GIET University, Rayagada</p>
+            
+          </div>
+          <div class="col-md-4">
+            <h3>3+ Projects</h3>
+            <p>Built & Presented</p>
+          </div>
+          <div class="col-md-4">
+            <h3>Internship Certifications</h3>
+            <p>Python, VLSI</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <a href="https://github.com/Bhabanis399" class="btn btn-outline-light btn-lg me-2" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/bhabani-shankar-pradhan-460962348" class="btn btn-outline-light btn-lg" target="_blank">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{{ url_for('static', filename='images/bhabani.jpg') }}" class="rounded-circle animated-img mt-3" alt="Bhabani Profile" width="300" height="300">
+      </div>
+    </header>
+
+    <section class="mt-5">
+      <h4 style="color: greenyellow;">Why Work With Me?</h4>
+      <ul>
+        <li>Strong foundation in both software and electronics</li>
+        <li>Hands-on experience in real hardware + cloud-based IoT</li>
+        <li>Fast learner and team player with national event experience</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>
