@@ -64,7 +64,8 @@
     </div>
 <!-- 
     Future Contact Form (commented) -->
-    {% with messages = get_flashed_messages() %}
+    <!-- Flash message -->
+{% with messages = get_flashed_messages() %}
   {% if messages %}
     <div class="alert alert-success mt-3" role="alert">
       {{ messages[0] }}
@@ -72,22 +73,24 @@
   {% endif %}
 {% endwith %}
 
-    <form method="POST" action="/contact">
-      <div class="mb-3">
-        <label for="name" class="form-label">Your Name</label>
-        <input type="text" class="form-control" id="name" name="name">
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Your Email</label>
-        <input type="email" class="form-control" id="email" name="email">
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Your Message</label>
-        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
-      </div>
-      <button type="submit" class="btn btn-outline-light">Send Message</button>
-    </form>
+<!-- Contact Form -->
+<form method="POST" action="/contact">
+  <div class="mb-3">
+    <label for="name" class="form-label">Your Name</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Your Email</label>
+    <input type="email" class="form-control" id="email" name="email">
+  </div>
+  <div class="mb-3">
+    <label for="message" class="form-label">Your Message</label>
+    <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-light">Send Message</button>
+</form>
 
+<!-- Show submitted data -->
 {% if name and email and message %}
   <div class="mt-4">
     <h5 class="text-info">Submitted Info</h5>
@@ -98,6 +101,7 @@
     </ul>
   </div>
 {% endif %}
+
  
   </div>
 

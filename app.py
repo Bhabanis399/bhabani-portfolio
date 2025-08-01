@@ -1,7 +1,17 @@
+from flask_mail import Mail, Message
 from flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Required for flash messages
+app.secret_key = 'your_secret_key'  # Needed for flash messages
+
+# Email configuration (using Gmail example)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'bhabanis399@gmail.com'        # Replace with your email
+app.config['MAIL_PASSWORD'] = 'pxwy orup lncb nhdl'      # Use Gmail App Password, not your real password
+
+mail = Mail(app)
 
 @app.route('/')
 def home():
@@ -26,17 +36,26 @@ def certificates():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.form.get("name")
-        email = request.form.get("email")
-        message = request.form.get("message")
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
 
-        # Save or print (you can replace this with saving to DB or sending email)
-        print(f"New message from {name} ({email}): {message}")
+        msg = Message(subject=f"New Contact from {name}",
+                      sender=email,
+                      recipients=['bhabanis399@gmail.com'],  # Your email to receive messages
+                      body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}")
 
-        flash("Thanks for contacting me! I'll get back to you soon.")
-        return redirect(url_for('contact'))
+        try:
+            mail.send(msg)
+            flash('Message sent successfully!', 'success')
+        except Exception as e:
+            flash('Something went wrong. Message not sent.', 'danger')
+            print(e)
 
-    return render_template("contact.html")
+        return redirect('/contact')
+
+    return render_template('contact.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
